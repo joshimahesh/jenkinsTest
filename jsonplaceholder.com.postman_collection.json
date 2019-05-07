@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "54537ff9-8b0f-44ec-9f4e-ed40f64111b6",
+		"name": "jsonplaceholder.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://jsonplaceholder.typicode.com/posts?userId=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9437a100-96a7-41b1-a892-b470a49fef6a",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"qui est esse\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts?userId=1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://jsonplaceholder.typicode.com/posts/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "507a7d8f-26a7-4b33-a892-5de72644dfa3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Response time is less than 600ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(600);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "https://jsonplaceholder.typicode.com/posts/1"
+			},
+			"response": []
+		}
+	]
+}
